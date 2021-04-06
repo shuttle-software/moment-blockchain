@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity >=0.6.0 <0.8.2;
 
 import './MomentFactory.sol';
-import "@openzeppelin/contracts/utils/EnumerableSet.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MomentMarket is MomentFactory, Ownable {
@@ -132,10 +132,10 @@ contract MomentMarket is MomentFactory, Ownable {
 		uint256 _price = _order.price;
 		uint256 _tokenId = _order.tokenId;
 
-		// _removeOrder(_orderId);
+		_removeOrder(_orderId);
 
-		_order.closed = true;
-		_order.successful = true;
+		// _order.closed = true;
+		// _order.successful = true;
 
 
 		if (_amount > 0) {
@@ -165,12 +165,15 @@ contract MomentMarket is MomentFactory, Ownable {
 	}
 
 	function transferMoney(address _to, uint256 _value) public {
-		address(uint160(_to)).transfer(_value);
+		// address(uint160(_to)).transfer(_value);
+		address payable wallet = payable(_to);
+		wallet.transfer(_value);
 		return;
 	}
 
 	// Temp
 	function kill() public onlyOwner {
-		selfdestruct(address(uint160(owner())));
+		address payable wallet = payable(owner());
+		selfdestruct(wallet);
 	}
 }

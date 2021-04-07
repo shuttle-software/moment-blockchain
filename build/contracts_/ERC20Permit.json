@@ -387,21 +387,21 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.6.0 <0.8.2;\r\n\r\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\r\n\r\nabstract contract ERC20Permit is ERC20 {\r\n    mapping (address => uint256) public nonces;\r\n\r\n\tbytes32 public constant PERMIT_TYPEHASH = keccak256(\"Permit(address holder,address spender,uint256 nonce,uint256 expiry,uint256 amount)\");\r\n    bytes32 public immutable DOMAIN_SEPARATOR;\r\n\r\n    constructor(string memory name_, string memory symbol_, uint256 _chainId) ERC20(name_, symbol_) {\r\n        // uint256 chainId;\r\n        // assembly {\r\n        //     chainId := chainid()\r\n        // }\r\n\r\n        DOMAIN_SEPARATOR = keccak256(\r\n            abi.encode(\r\n                keccak256(\"EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)\"),\r\n                keccak256(bytes(name_)),\r\n                keccak256(bytes(version())),\r\n                _chainId,\r\n                address(this)\r\n            )\r\n        );\r\n    }\r\n\r\n    /// @dev Setting the version as a function so that it can be overriden\r\n    function version() public pure virtual returns(string memory) { return \"1\"; }\r\n\r\n\t// --- Approve by signature ---\r\n    function permit(\r\n\t\taddress holder, \r\n\t\taddress spender, \r\n\t\tuint256 nonce, \r\n\t\tuint256 expiry,\r\n        uint256 amount, \r\n\t\tuint8 v, \r\n\t\tbytes32 r, \r\n\t\tbytes32 s\r\n\t) \r\n\t\texternal\r\n    {\r\n        bytes32 digest = keccak256(abi.encodePacked(\r\n\t\t\t\"\\x19\\x01\",\r\n\t\t\tDOMAIN_SEPARATOR,\r\n\t\t\tkeccak256(\r\n\t\t\t\tabi.encode(\r\n\t\t\t\t\tPERMIT_TYPEHASH,\r\n\t\t\t\t\tholder,\r\n\t\t\t\t\tspender,\r\n\t\t\t\t\tnonce,\r\n\t\t\t\t\texpiry,\r\n\t\t\t\t\tamount\r\n\t\t\t\t)\r\n\t\t\t)\r\n        ));\r\n\r\n        require(holder != address(0), \"invalid-address-0\");\r\n        require(holder == ecrecover(digest, v, r, s), \"invalid-permit\");\r\n        require(expiry == 0 || block.timestamp <= expiry, \"permit-expired\");\r\n        require(nonce == nonces[holder]++, \"invalid-nonce\");\r\n\r\n\t\t_approve(holder, spender, amount);\r\n    }\r\n}",
-  "sourcePath": "D:\\workspace\\node_project\\moment\\contracts\\ERC20Permit.sol",
+  "sourcePath": "D:/workspace/node_project/moment/contracts/ERC20Permit.sol",
   "ast": {
     "absolutePath": "/D/workspace/node_project/moment/contracts/ERC20Permit.sol",
     "exportedSymbols": {
       "Context": [
-        2762
+        2137
       ],
       "ERC20": [
-        1352
+        727
       ],
       "ERC20Permit": [
         159
       ],
       "IERC20": [
-        1430
+        805
       ]
     },
     "id": 160,
@@ -428,7 +428,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 160,
-        "sourceUnit": 1353,
+        "sourceUnit": 728,
         "src": "68:55:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -441,7 +441,7 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1352,
+              "referencedDeclaration": 727,
               "src": "160:5:0"
             },
             "id": 4,
@@ -450,18 +450,18 @@
           }
         ],
         "contractDependencies": [
-          1352,
-          1430,
-          2762
+          727,
+          805,
+          2137
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 159,
         "linearizedBaseContracts": [
           159,
-          1352,
-          1430,
-          2762
+          727,
+          805,
+          2137
         ],
         "name": "ERC20Permit",
         "nodeType": "ContractDefinition",
@@ -1117,7 +1117,7 @@
                   "id": 23,
                   "name": "ERC20",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1352,
+                  "referencedDeclaration": 727,
                   "src": "489:5:0"
                 },
                 "nodeType": "ModifierInvocation",
@@ -2386,7 +2386,7 @@
                       "name": "_approve",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1340,
+                      "referencedDeclaration": 715,
                       "src": "1889:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2661,16 +2661,16 @@
     "absolutePath": "/D/workspace/node_project/moment/contracts/ERC20Permit.sol",
     "exportedSymbols": {
       "Context": [
-        2762
+        2137
       ],
       "ERC20": [
-        1352
+        727
       ],
       "ERC20Permit": [
         159
       ],
       "IERC20": [
-        1430
+        805
       ]
     },
     "id": 160,
@@ -2697,7 +2697,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 160,
-        "sourceUnit": 1353,
+        "sourceUnit": 728,
         "src": "68:55:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2710,7 +2710,7 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1352,
+              "referencedDeclaration": 727,
               "src": "160:5:0"
             },
             "id": 4,
@@ -2719,18 +2719,18 @@
           }
         ],
         "contractDependencies": [
-          1352,
-          1430,
-          2762
+          727,
+          805,
+          2137
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 159,
         "linearizedBaseContracts": [
           159,
-          1352,
-          1430,
-          2762
+          727,
+          805,
+          2137
         ],
         "name": "ERC20Permit",
         "nodeType": "ContractDefinition",
@@ -3386,7 +3386,7 @@
                   "id": 23,
                   "name": "ERC20",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1352,
+                  "referencedDeclaration": 727,
                   "src": "489:5:0"
                 },
                 "nodeType": "ModifierInvocation",
@@ -4655,7 +4655,7 @@
                       "name": "_approve",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1340,
+                      "referencedDeclaration": 715,
                       "src": "1889:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4932,7 +4932,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-07T13:34:48.679Z",
+  "updatedAt": "2021-03-30T09:17:45.067Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

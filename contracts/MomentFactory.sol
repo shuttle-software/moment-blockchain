@@ -25,4 +25,28 @@ contract MomentFactory is ERC721 {
 		uint id = moments.length - 1;
 		_mint(msg.sender, id);
 	}
+
+	/// @notice Returns a list of all moments IDs assigned to an address.
+    /// @param _owner The owner whose moments we are interested in.
+    function tokensOfOwner(address _owner) external view returns(uint256[] memory ownerTokens) {
+        uint256 tokenCount = balanceOf(_owner);
+
+        if (tokenCount == 0) {
+            return new uint256[](0);
+        } else {
+            uint256[] memory result = new uint256[](tokenCount);
+            uint256 totalMoments = moments.length - 1;
+            uint256 resultIndex = 0;
+            uint256 momentId;
+
+            for (momentId = 0; momentId <= totalMoments; momentId++) {
+                if (ownerOf(momentId) == _owner) {
+                    result[resultIndex] = momentId;
+                    resultIndex++;
+                }
+            }
+
+            return result;
+        }
+    }
 }

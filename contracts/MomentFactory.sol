@@ -8,7 +8,9 @@ contract MomentFactory is ERC721 {
 	constructor() ERC721("Moment", "MMT") {}
 	
     struct Moment {
+		string name;
 		string url;
+		string meta_url;
 		uint created_at;
 	}
 
@@ -19,8 +21,8 @@ contract MomentFactory is ERC721 {
 		_;
 	}
 
-	function createMoment (string memory _url) public {
-		moments.push(Moment(_url, block.timestamp));
+	function createMoment (string memory _url, string memory _meta_url, string memory _name) public {
+		moments.push(Moment(_name, _url, _meta_url, block.timestamp));
 		uint id = moments.length - 1;
 		_mint(msg.sender, id);
 	}

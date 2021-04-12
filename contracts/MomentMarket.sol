@@ -2,14 +2,14 @@
 
 pragma solidity >=0.6.0 <0.8.2;
 
-import './MomentFactory.sol';
+import './NFTPermit.sol';
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract MomentMarket is MomentFactory, Ownable {
+contract MomentMarket is NFTPermit, Ownable {
 	using EnumerableSet for EnumerableSet.UintSet;
 
-	constructor() {}
+	constructor() NFTPermit(2771) {}
 
 	event OrderCreated(
 		address indexed _seller,
@@ -108,18 +108,18 @@ contract MomentMarket is MomentFactory, Ownable {
 		);
 	}
 
-	function byeOrder(
+	function buyOrder(
 		uint256 _orderId
 	)
 		external
 		payable
 		onlyOrderIsOpen(_orderId)
 	{
-		_byeOrder(_orderId, msg.value);
+		_buyOrder(_orderId, msg.value);
 		_transfer(address(this), msg.sender, orders[_orderId].tokenId);
 	}
 
-	function _byeOrder(
+	function _buyOrder(
 		uint256 _orderId,
 		uint256 _amount
 	)

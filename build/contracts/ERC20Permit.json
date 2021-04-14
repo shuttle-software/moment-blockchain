@@ -392,16 +392,16 @@
     "absolutePath": "/D/workspace/node_project/moment/contracts/ERC20Permit.sol",
     "exportedSymbols": {
       "Context": [
-        2845
+        3025
       ],
       "ERC20": [
-        1435
+        1615
       ],
       "ERC20Permit": [
         159
       ],
       "IERC20": [
-        1513
+        1693
       ]
     },
     "id": 160,
@@ -428,7 +428,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 160,
-        "sourceUnit": 1436,
+        "sourceUnit": 1616,
         "src": "68:55:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -441,7 +441,7 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1435,
+              "referencedDeclaration": 1615,
               "src": "160:5:0"
             },
             "id": 4,
@@ -450,18 +450,18 @@
           }
         ],
         "contractDependencies": [
-          1435,
-          1513,
-          2845
+          1615,
+          1693,
+          3025
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 159,
         "linearizedBaseContracts": [
           159,
-          1435,
-          1513,
-          2845
+          1615,
+          1693,
+          3025
         ],
         "name": "ERC20Permit",
         "nodeType": "ContractDefinition",
@@ -1117,7 +1117,7 @@
                   "id": 23,
                   "name": "ERC20",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1435,
+                  "referencedDeclaration": 1615,
                   "src": "489:5:0"
                 },
                 "nodeType": "ModifierInvocation",
@@ -2386,7 +2386,7 @@
                       "name": "_approve",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1423,
+                      "referencedDeclaration": 1603,
                       "src": "1889:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2661,16 +2661,16 @@
     "absolutePath": "/D/workspace/node_project/moment/contracts/ERC20Permit.sol",
     "exportedSymbols": {
       "Context": [
-        2845
+        3025
       ],
       "ERC20": [
-        1435
+        1615
       ],
       "ERC20Permit": [
         159
       ],
       "IERC20": [
-        1513
+        1693
       ]
     },
     "id": 160,
@@ -2697,7 +2697,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 160,
-        "sourceUnit": 1436,
+        "sourceUnit": 1616,
         "src": "68:55:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2710,7 +2710,7 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1435,
+              "referencedDeclaration": 1615,
               "src": "160:5:0"
             },
             "id": 4,
@@ -2719,18 +2719,18 @@
           }
         ],
         "contractDependencies": [
-          1435,
-          1513,
-          2845
+          1615,
+          1693,
+          3025
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 159,
         "linearizedBaseContracts": [
           159,
-          1435,
-          1513,
-          2845
+          1615,
+          1693,
+          3025
         ],
         "name": "ERC20Permit",
         "nodeType": "ContractDefinition",
@@ -3386,7 +3386,7 @@
                   "id": 23,
                   "name": "ERC20",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1435,
+                  "referencedDeclaration": 1615,
                   "src": "489:5:0"
                 },
                 "nodeType": "ModifierInvocation",
@@ -4655,7 +4655,7 @@
                       "name": "_approve",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1423,
+                      "referencedDeclaration": 1603,
                       "src": "1889:8:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4932,7 +4932,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-04-07T15:47:35.778Z",
+  "updatedAt": "2021-04-14T15:59:26.336Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
